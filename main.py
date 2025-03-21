@@ -76,6 +76,8 @@ def main():
         "image7.jpg",
     ]
 
+    image_files = list(map(lambda x: f"images/{x}", image_files))
+
     try:
         # Stitch images
         panorama = stitch_images(image_files)
@@ -84,8 +86,8 @@ def main():
         display_result(image_files, panorama)
 
         # Save the result
-        cv2.imwrite("panorama.jpg", cv2.cvtColor(panorama, cv2.COLOR_RGB2BGR))
-        print("Panorama saved as 'panorama.jpg'")
+        cv2.imwrite("images/panorama.jpg", cv2.cvtColor(panorama, cv2.COLOR_RGB2BGR))
+        print("Panorama saved as 'images/panorama.jpg'")
 
     except Exception as e:
         print(f"Error: {e}")
